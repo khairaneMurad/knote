@@ -17,9 +17,9 @@ spec:
           image: khairane/knote:1.0
           ports:
             - containerPort: 8080
-          env:
-            - name: MONGO_URL
-              value: mongodb://mongo:27017/dev
+          envFrom:
+            - configMapRef:
+                name: knote-vars
           imagePullPolicy: Always
 ---
 kind: Service
